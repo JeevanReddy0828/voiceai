@@ -1,0 +1,9 @@
+.env
+voiceai.db
+__pycache__/
+*.pyc
+.venv/
+.claude/
+*.wav
+*.mp3
+*.mp4

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoiceAI — Transcribe &amp; Understand</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🎙️ VoiceAI</h1>
+    <nav>
+      <button class="tab-btn active" data-tab="upload">Upload</button>
+      <button class="tab-btn" data-tab="live">Live</button>
+      <button class="tab-btn" data-tab="library">Library</button>
+      <button class="tab-btn" data-tab="chat">Chat</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Upload tab -->
+    <section id="tab-upload" class="tab active">
+      <div id="dropzone">
+        <p><strong>Drop an audio or video file here</strong> or click to choose</p>
+        <p class="hint">mp3, wav, m4a, mp4, webm, ogg, flac…</p>
+        <input type="file" id="file-input" accept="audio/*,video/mp4,video/webm,video/quicktime" hidden />
+      </div>
+      <div id="upload-status" class="status hidden"></div>
+      <div id="upload-result" class="result hidden"></div>
+    </section>
+
+    <!-- Live tab -->
+    <section id="tab-live" class="tab">
+      <div class="live-controls">
+        <button id="live-toggle" class="primary">🎤 Start listening</button>
+        <button id="live-end" class="secondary" disabled>End session &amp; summarize</button>
+        <span id="live-indicator" class="hidden">● recording</span>
+      </div>
+      <div id="live-transcript" class="transcript"></div>
+      <div id="live-status" class="status hidden"></div>
+      <div id="live-result" class="result hidden"></div>
+    </section>
+
+    <!-- Library tab -->
+    <section id="tab-library" class="tab">
+      <div id="library-list"></div>
+      <div id="library-detail" class="result hidden"></div>
+    </section>
+    <!-- Chat tab -->
+    <section id="tab-chat" class="tab">
+      <div class="chat-header">
+        <label for="chat-recording">Talk about:</label>
+        <select id="chat-recording"></select>
+      </div>
+      <div id="chat-thread" class="chat-thread"></div>
+      <form id="chat-form" class="chat-input">
+        <input type="text" id="chat-text" placeholder="Ask about this recording — summaries, follow-ups, who said what…" autocomplete="off" />
+        <button type="submit" class="primary" id="chat-send">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
